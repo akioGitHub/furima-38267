@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-| last-name          | string | null: false               |
-| first-name         | string | null: false               |
-| last-kana-name     | string | null: false               |
-| first-kana-name    | string | null: false               |
-| datetime           | string | null: false               |
+| Column             | Type     | Options                   |
+| ------------------ | -------- | ------------------------- |
+| nickname           | string   | null: false               |
+| email              | string   | null: false, unique: true |
+| encrypted_password | string   | null: false               |
+| last_name          | string   | null: false               |
+| first_name         | string   | null: false               |
+| last_kana-name     | string   | null: false               |
+| first_kana-name    | string   | null: false               |
+| birthday           | datetime | null: false               |
 
 ### Association
 
@@ -23,7 +23,7 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| item-name          | string     | null: false                    |
+| item_name          | string     | null: false                    |
 | detail             | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | quality_id         | integer    | null: false                    |
@@ -39,7 +39,7 @@
 - has_one :order
 
 
-## order テーブル
+## orders テーブル
 
 | Column             | Type         | Options                              |
 | ------------------ | ------------ | ------------------------------------ |
@@ -51,19 +51,19 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping-address
+- has_one :shipping_address
 
 
-## shipping-addressテーブル
+## shipping_addressテーブル
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| post-code          | string     | null: false                    |
-| prefectures        | string     | null: false                    |
+| post_code          | string     | null: false                    |
+| prefectures_id     | integer    | null: false                    |
 | municipalities     | string     | null: false                    |
-| house-number       | string     | null: false                    |
-| building-name      | string     |                                |
-| phon-number        | string     | null: false                    |
+| house_number       | string     | null: false                    |
+| building_name      | string     |                                |
+| phon_number        | string     | null: false                    |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
