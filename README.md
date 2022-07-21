@@ -9,9 +9,9 @@
 | encrypted_password | string   | null: false               |
 | last_name          | string   | null: false               |
 | first_name         | string   | null: false               |
-| last_kana-name     | string   | null: false               |
-| first_kana-name    | string   | null: false               |
-| birthday           | datetime | null: false               |
+| last_kana_name     | string   | null: false               |
+| first_kana_name    | string   | null: false               |
+| birthday           | date     | null: false               |
 
 ### Association
 
@@ -28,7 +28,7 @@
 | category_id        | integer    | null: false                    |
 | quality_id         | integer    | null: false                    |
 | postage_id         | integer    | null: false                    |
-| prefectures_id     | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | term_id            | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
@@ -59,11 +59,11 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | post_code          | string     | null: false                    |
-| prefectures_id     | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | municipalities     | string     | null: false                    |
 | house_number       | string     | null: false                    |
 | building_name      | string     |                                |
-| phon_number        | string     | null: false                    |
+| phone_number       | string     | null: false                    |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
