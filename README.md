@@ -25,11 +25,11 @@
 | ------------------ | ---------- | ------------------------------ |
 | item-name          | string     | null: false                    |
 | detail             | text       | null: false                    |
-| category           | string     | null: false                    |
-| quality            | string     | null: false                    |
-| postage            | string     | null: false                    |
-| prefectures        | string     | null: false                    |
-| term               | string     | null: false                    |
+| category_id        | integer    | null: false                    |
+| quality_id         | integer    | null: false                    |
+| postage_id         | integer    | null: false                    |
+| prefectures_id     | integer    | null: false                    |
+| term_id            | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
