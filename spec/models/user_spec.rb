@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
         @user.password = 'ああああああ'
         @user.password_confirmation = 'ああああああ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password は半角英数を両方含む必要があります")
+        expect(@user.errors.full_messages).to include('Password は半角英数を両方含む必要があります')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = 'a0000'
@@ -80,12 +80,12 @@ RSpec.describe User, type: :model do
       it 'last_kana_nameが全角カタカナでなければ登録できない' do
         @user.last_kana_name = '山田'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last kana name はカタカナで入力してください")
+        expect(@user.errors.full_messages).to include('Last kana name はカタカナで入力してください')
       end
       it 'first_kana_nameが全角カタカナでなければ登録できない' do
         @user.first_kana_name = '山田'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First kana name はカタカナで入力してください")
+        expect(@user.errors.full_messages).to include('First kana name はカタカナで入力してください')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
