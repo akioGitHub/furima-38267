@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :orders
+  # has_many :orders
 
   validates :nickname, :last_name, :first_name, :last_kana_name, :first_kana_name, :birthday, presence: true
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数を両方含む必要があります' }
