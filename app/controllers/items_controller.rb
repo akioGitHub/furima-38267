@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   def index
+    query = "SELECT * FROM items ORDER BY id DESC "
+    @items = Item.find_by_sql(query)
   end
 
   def new
