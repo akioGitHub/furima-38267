@@ -39,7 +39,6 @@
 - has_one :order
 
 
-
 ## orders テーブル
 
 | Column             | Type         | Options                              |
