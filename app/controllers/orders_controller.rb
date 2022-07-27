@@ -5,18 +5,19 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @order_shipping_address = OrderShippingAddress.new
   end
+
   def create
     @item = Item.find(params[:item_id])
     @order_shipping_address = OrderShippingAddress.new(order_params)
     if @order_shipping_address.valid?
-      Payjp.api_key = "sk_test_1182ef2f41f6adc4b4d3e11d"
+      Payjp.api_key = 'sk_test_1182ef2f41f6adc4b4d3e11d'
       Payjp::Charge.create(
         amount: @item.price,
         card: order_params[:token],
         currency: 'jpy'
       )
       @order_shipping_address.save
-      redirect_to root_path    
+      redirect_to root_path
     else
       render :index
     end
@@ -25,12 +26,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_shipping_address).permit(:post_code, :prefecture_id, :municipalitie, :house_number, :building_name, :phone_number).merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
+    params.require(:order_shipping_address).permit(:post_code, :prefecture_id, :municipalitie, :house_number, :building_name, :phone_number).merge(
+      user_id: current_user.id, item_id: @item.id, token: params[:token]
+    )
   end
 
   def move_to_root
     item = Item.find(params[:item_id])
-    redirect_to root_path unless user_signed_in? && current_user.id != item.user_id && item.order == nil
+    redirect_to root_path unless user_signed_in? && current_user.id != item.user_id && item.order.nil?
   end
 end
-
