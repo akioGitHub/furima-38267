@@ -1,9 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :destroy]
+
   def index
     query = 'SELECT * FROM items ORDER BY id DESC '
     @items = Item.find_by_sql(query)
+    @orders = Order.all
   end
 
   def new
@@ -48,7 +50,7 @@ class ItemsController < ApplicationController
 
   def move_to_index
     item = Item.find(params[:id])
-    redirect_to action: :index unless user_signed_in? && current_user.id == item.user_id
+    redirect_to action: :index unless user_signed_in? && current_user.id == item.user_id && item.order.nil?
   end
 
   def set_item
