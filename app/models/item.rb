@@ -10,7 +10,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  # has_one :order
+  has_one :order
 
   validates :item_name, :image, :detail, :price, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
