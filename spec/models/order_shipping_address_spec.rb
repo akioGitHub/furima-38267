@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe OrderShippingAddress, type: :model do
   before do
-    @order_shipping_address = FactoryBot.build(:order_shipping_address)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @order_shipping_address = FactoryBot.build(:order_shipping_address, user_id: @user.id, item_id: @item.id)
   end
 
   describe '商品購入' do
@@ -10,13 +12,17 @@ RSpec.describe OrderShippingAddress, type: :model do
       it 'post_code,prefecture_id,municipalitie,house_number,building_name,phone_numberが存在すれば購入できる' do
         expect(@order_shipping_address).to be_valid
       end
+      it 'building_nameが空でも購入できる' do
+        @order_shipping_address.building_name = ''
+        expect(@order_shipping_address).to be_valid
+      end
     end
 
-    context '出品できないとき' do
+    context '購入できないとき' do
       it 'post_codeが空では購入できない' do
         @order_shipping_address.post_code = ''
         @order_shipping_address.valid?
-        expect(@order_shipping_address.errors.full_messages).to include("Post code can't be blank", 'Post code は半角で入力してください')
+        expect(@order_shipping_address.errors.full_messages).to include("Post code can't be blank")
       end
       it 'prefecture_idが空では購入できない' do
         @order_shipping_address.prefecture_id = ''
@@ -62,6 +68,21 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.phone_number = '090-123-456'
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include('Phone number は10桁か11桁の半角数字で入力してください')
+      end
+      it 'tokenが空では購入できない' do
+        @order_shipping_address.token = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'userが紐づいていない状態だと登録できない' do
+        @order_shipping_address.user_id = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐づいていない状態だと登録できない' do
+        @order_shipping_address.item_id = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
