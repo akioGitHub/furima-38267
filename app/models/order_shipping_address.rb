@@ -9,7 +9,7 @@ class OrderShippingAddress
   validates :post_code, :municipalitie, :house_number, :phone_number, :token, :user_id, :item_id, presence: true
   validates :post_code, format: { with: VALID_POST_CODE, message: 'は半角で入力してください' }
   validates :phone_number, format: { with: VALID_PHONE_NUMBER, message: 'は10桁か11桁の半角数字で入力してください' }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
   validates :phone_number, numericality: true
 
   def save
