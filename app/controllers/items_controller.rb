@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, only: :edit
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:edit, :destroy]
+  before_action :move_to_index, only: :destroy
 
   def index
     query = 'SELECT * FROM items ORDER BY id DESC '
@@ -29,7 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.new(item_params)
+    @item.update(item_params)
     if @item.save
       redirect_to item_path(@item.id)
     else

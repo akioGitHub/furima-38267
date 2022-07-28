@@ -24,8 +24,8 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Post code can't be blank")
       end
-      it 'prefecture_idが空では購入できない' do
-        @order_shipping_address.prefecture_id = ''
+      it 'prefecture_idが1では購入できない' do
+        @order_shipping_address.prefecture_id = '1'
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Prefecture can't be blank")
       end
