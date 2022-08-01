@@ -1,10 +1,11 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with(model: @item, local: true ) do |f| %>
+    <%= form_with(model: @item, local: true, id:"new_item_image") do |f| %>
 
       <%= render 'shared/error_messages', model: f.object %>
 
@@ -17,10 +18,10 @@
           <p>
             クリックしてファイルをアップロード
           </p>
+          <div id="previews"></div>
           <%= f.file_field :image, id:"item-image" %>
         </div>
       </div>
-
       <div class="new-items">
         <div class="weight-bold-text">
           商品名
@@ -104,6 +105,7 @@
           </div>
         </div>
       </div>
+      
       <div class="caution">
         <p class="sentence">
           <a href="#">禁止されている出品、</a>
