@@ -6,7 +6,7 @@
       <%= "ニックネーム： #{@user.nickname}" %>
     </h2>
     <div class="user-red-btn">
-      <%= link_to "ユーザー情報の編集", "#", method: :get, class: "user-edit" %>
+      <%= link_to "ユーザー情報の編集", edit_user_registration_path(current_user), method: :get, class: "user-edit" %>
     </div>
     <table class="detail-table">
       <tbody>
