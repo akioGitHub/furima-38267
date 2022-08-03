@@ -22,6 +22,10 @@
           <th class="detail-user">誕生日</th>
           <td class="detail-user-data"><%= @user.birthday %></td>
         </tr>
+        <tr>
+          <th class="detail-user">クレジットカード情報</th>
+          <td class="detail-user-data"><%= "【番号】 **** **** **** #{@card[:last4]} 【有効期限】 #{@card[:exp_month]}/#{@card[:exp_year]}" %></td>
+        </tr>
       </tbody>
     </table>
   </div>

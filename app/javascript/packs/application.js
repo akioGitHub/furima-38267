@@ -9,6 +9,7 @@ require("channels")
 require("../memo")
 require("../card")
 require("../preview")
+require("../card_user")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
