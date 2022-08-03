@@ -6,6 +6,13 @@ class OrdersController < ApplicationController
 
   def index
     @order_shipping_address = OrderShippingAddress.new
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    card = Card.find_by(user_id: current_user.id)
+
+    if card.present?
+      customer = Payjp::Customer.retrieve(card.customer_token)
+      @card = customer.cards.first
+    end
   end
 
   def create

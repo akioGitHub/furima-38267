@@ -1,0 +1,67 @@
+/* ユーザーの概要 */
+
+.user-show {
+  background-color: #f8f8f8;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 0;
+}
+
+.user-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 1200px;
+  padding: 10vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-box>.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.user-red-btn {
+  background-color: #ea352d;
+  margin: 20px 0px;
+  /* padding: 2vh 10vw; */
+  width: 200px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  
+}
+
+.user-edit {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 0 auto;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+  font-weight: bold;
+  background-color: #FFF;
+}
+
+.detail-user {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-user-data {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
