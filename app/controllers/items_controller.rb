@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
   def edit
     item_attributes = @item.attributes
     @item_tag = ItemTag.new(item_attributes)
+    @item_tag.tag_name =@item.tags&.first&.tag_name
   end
 
   def update
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
 
   def item_tag_params
     params.require(:item_tag).permit(:item_name, :detail, :price, :category_id, :quality_id, :postage_id, :prefecture_id,
-                                 :term_id, {images: []}).merge(user_id: current_user.id)
+                                 :term_id, :tag_name, {images: []}).merge(user_id: current_user.id)
   end
 
   def move_to_index

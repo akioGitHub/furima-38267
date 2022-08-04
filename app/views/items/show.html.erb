@@ -49,6 +49,10 @@
           <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
+          <th class="detail-item">タグ</th>
+          <td class="detail-value"><%= @item.tags&.first&.tag_name %></td>
+        </tr>
+        <tr>
           <th class="detail-item">カテゴリー</th>
           <td class="detail-value"><%= @item.category.name %></td>
         </tr>

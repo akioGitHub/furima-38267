@@ -30,6 +30,13 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :item_name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <div class="weight-bold-text">
+        タグ
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="tag-field">
+        <%= f.text_field :tag_name, placeholder: 'add tags' %>
+      </div>
       <div class="items-explain">
         <div class="weight-bold-text">
           商品の説明
