@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   resources :cards, only: [:new, :create]
   resources :items do
+    collection do
+      get 'search'
+    end
     resources :orders, only: [:index, :create]
   end
 end

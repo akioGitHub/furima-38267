@@ -6,7 +6,6 @@
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with(model: @item_tag, url:item_path(@item.id), method: :patch, local: true, id:"new_item_image") do |f| %>
-
       <%= render 'shared/error_messages', model: f.object %>
 
       <div class="img-upload">
@@ -31,10 +30,10 @@
         </div>
         <div class="weight-bold-text">
           タグ
-          <span class="indispensable">必須</span>
         </div>
         <div class="tag-field">
-          <%= f.text_field :tag_name, placeholder: 'add tags' %>
+          <%= f.text_field :tag_name, placeholder: 'add tags', id:"item_form_tag_name" %>
+          <div id="search-result"></div>
         </div>
         <%= f.text_area :item_name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
         <div class="items-explain">

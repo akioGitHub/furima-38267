@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def edit
     item_attributes = @item.attributes
     @item_tag = ItemTag.new(item_attributes)
-    @item_tag.tag_name =@item.tags&.first&.tag_name
+    @item_tag.tag_name = @item.tags&.first&.tag_name
   end
 
   def update
@@ -45,6 +45,12 @@ class ItemsController < ApplicationController
 
   def destroy
     redirect_to root_path if item.destroy
+  end
+
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['tag_name LIKE ?', "%#{params[:keyword]}%"])
+    render json:{ keyword: tag }
   end
 
   private
