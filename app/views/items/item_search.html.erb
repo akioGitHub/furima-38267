@@ -1,0 +1,66 @@
+<%= render "shared/header" %>
+<h3>検索ページ</h3>
+<h3><%= link_to 'トップページへ戻る', root_path%></h3>
+<div class='item-contents' id="detailed-search-result-wrapper">
+  <%= search_form_for @q, url: item_search_items_path, html: {id: "detailed-search-form"} do |f| %>
+    <div class="search-field">
+      <%= f.label :item_name, '商品名' %>
+      <br>
+      <%= f.text_field :item_name, placeholder: '商品名', value: params[:q]&.dig(:item_name) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :user_nickname_cont, '出品者名' %>
+      <br>
+      <%= f.text_field :user_nickname_cont, placeholder: '出品者名' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :detail_cont, '商品の説明' %>
+      <br>
+      <%= f.text_field :detail_cont, placeholder: '商品の説明' %>
+    </div>
+    <div class="search-field">
+      <%= f.label :category_id_in, 'カテゴリ' %>
+      <br>
+      <%= f.collection_check_boxes(:category_id_in, Category.all, :id, :name, ) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :quality_id_eq, '商品の状態' %>
+      <br>
+      <%= f.collection_check_boxes(:quality_id_in, Quality.all, :id, :name, ) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :postage_id_eq, '発送料の負担' %>
+      <br>
+      <%= f.collection_select(:postage_id_eq, Postage.all, :id, :name,{include_blank: "---"} ) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :prefecture_id_eq, '発送元の地域' %>
+      <br>
+      <%= f.collection_check_boxes(:prefecture_id_in, Prefecture.all, :id, :name, ) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :term_id_eq, '発送までの日数' %>
+      <br>
+      <%= f.collection_check_boxes(:term_id_in, Term.all, :id, :name, ) %>
+    </div>
+    <div class="search-field">
+      <%= f.label :price_gteq, '価格'%>
+      <br>
+      <%= f.number_field :price_gteq %> 円以上
+      <br>
+      <%= f.number_field :price_lteq %> 円以下
+    </div>
+    <%= f.submit '検索' %>
+  <% end %>
+  <ul class='item-lists' id="detailed-search-result">
+    <% @items.each do |item| %>
+      <li class='list'>
+        <div class="posted-content">
+          <%= image_tag item.images[0],width: "100",height:"100" %><br>
+          <%= item.item_name%><br>
+          <%= link_to '詳細', item_path(item.id)%>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
