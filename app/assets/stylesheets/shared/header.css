@@ -12,7 +12,7 @@
 .search-bar-contents {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .furima-icon {
@@ -27,7 +27,7 @@
   margin-bottom: 5px;
 }
 
-.search-form>.input-box {
+.search-form>.item-search {
   width: 100%;
   height: 5vh;
   padding-left: 10px;
@@ -43,6 +43,7 @@
 
 .search-icon {
   width: 100%;
+  margin: 0, 0, 0, auto;
 }
 
 .nav {
@@ -101,4 +102,9 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.item_search-button{
+  margin-left: 5px;
+  margin-top: 8px;
 }

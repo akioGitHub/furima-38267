@@ -1,4 +1,8 @@
 const pay = () => {
+  const saveCard = document.getElementById("save_card")
+  if (document.getElementById("save_card")){
+    return saveCard;
+  };
   const cardForm = document.querySelector(".Cardpage");
   // クレジット登録ページのフォームがないならここで終了。「!」は論理否定演算子。
   if (!cardForm) return null;

@@ -1,4 +1,8 @@
 const pay = () => {
+  const saveCard = document.getElementById("save_card")
+  if (document.getElementById("save_card")){
+    return saveCard;
+  };
   Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
   const submit = document.getElementById("button");
   submit.addEventListener("click", (e) => {
