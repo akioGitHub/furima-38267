@@ -8,13 +8,21 @@ crumb :items_new do
 end
 
 crumb :items_show do
-  link "商品ページ", item_path
+  item = Item.find(params[:id])
+  link "商品ページ", item_path(item)
+  parent :root
+end
+
+crumb :order_items_show do
+  item = Item.find(params[:item_id])
+  link "商品ページ", item_path(item)
   parent :root
 end
 
 crumb :orders do
-  link "購入ページ", item_orders_path
-  parent :items_show
+  item = Item.find(params[:item_id])
+  link "購入ページ", item_orders_path(item)
+  parent :order_items_show
 end
 
 crumb :item_search do
