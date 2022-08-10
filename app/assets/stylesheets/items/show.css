@@ -146,6 +146,7 @@
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
+  padding: 5px;
 }
 
 .comment-text {
@@ -160,7 +161,7 @@
   padding: 10px;
   font-size: 14px;
   margin: 10px 0px;
-  text-align: left;
+  text-align: center;
 }
 
 .comment-btn {
@@ -173,6 +174,20 @@
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.comment-image {
+  width: 25px;
+  height: 20px;
+  margin-right: 3px;
+}
+
+.comment-submit {
+  background-color: transparent;
+  border: 1px solid transparent;
 }
 
 .comment-flag {
@@ -188,7 +203,7 @@
   display: flex;
   justify-content: space-between;
   width: 50vw;
-
+  margin: 0 auto;
 }
 
 .change-item-btn {
@@ -228,4 +243,17 @@
   background-color: #F4F4F4;
   padding: 5px;
   font-size: 12px;
+}
+
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
+}
+
+.user-info{
+  color: gray;
+  font-weight: bold;
 }
